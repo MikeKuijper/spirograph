@@ -1,74 +1,147 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
-  <style>
-    body {
-      padding: 0;
-      margin: 10;
-    }
-  </style>
   <script src="libraries/p5.min.js"></script>
   <script src="libraries/p5.dom.min.js"></script>
   <script src="libraries/p5.sound.min.js"></script>
   <script src="libraries/p5.dom.js"></script>
   <script src="sketch.js"></script>
-  <title>Rocket Landing Simulator</title>
+  <title>Spirograph</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
 <body>
-  <!-- <h1>Rocket Landing Simulator</h1> -->
-
-  <section class="page-header">
-    <h1 class="project-name">Space Simulator</h1>
-    <h2 class="project-tagline"></h2>
-
+  <section class="header">
+    <h1 class="title">Spirograph Generator</h1>
+    <h2 class="subtitle">by Mike Kuijper</h2>
   </section>
 
-  <section class="main-content">
-    <h2 id="welcome-to-github-pages">Welcome to the Space Simulator</h2>
+  <section class="contents">
+    <!--<div>
+      <h1 class="title">Lorem ipsum dolor sit amet</h1>
+      <br>
+      <h>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec est urna. Mauris at justo tempor, fermentum tellus at, venenatis neque. Praesent eu velit sed ex mollis facilisis. Curabitur sit amet vulputate orci, eget congue justo. Ut
+        vehicula orci sed dolor efficitur, sed lobortis leo sodales. Vestibulum ac sapien massa. Ut placerat ac mauris at blandit. Phasellus rhoncus tempor nulla et venenatis. Aenean pellentesque sollicitudin sapien eget facilisis. Nam et euismod
+        diam. Cras fringilla, diam eu blandit luctus, libero eros posuere dui, at commodo quam neque ac orci. Cras nec felis vulputate, rhoncus tellus vel, pretium risus.</h>
+      <br>
+      <br>
+      <h>
+        Proin justo mi, semper eu dolor at, tristique laoreet neque. Nulla tristique porttitor risus ac suscipit. Donec vel congue felis. Nam a erat eget felis scelerisque ornare eget vitae mi. Ut vulputate, nulla vel suscipit finibus, lectus ante
+        aliquet massa, ac sagittis quam lacus vitae ex. Nunc eu tortor eget sapien cursus tincidunt. Suspendisse et mauris id erat maximus commodo vitae ut dui. Suspendisse molestie interdum blandit. Proin ac neque ligula. Nulla sagittis lacus
+        mauris,
+        porttitor lacinia dui ullamcorper ut. Vivamus pellentesque elit in ullamcorper dictum. Duis ornare orci vitae nisi egestas, sit amet interdum lacus ultrices. Integer sagittis a erat sit amet bibendum. Proin in auctor enim, eget pharetra
+        metus.
+        Fusce mattis finibus velit, eget rhoncus orci elementum sed.
+      </h>
+      <br>
+      <br>
+      <h>
+        Maecenas vel dolor accumsan augue dignissim ultricies. Morbi pharetra tincidunt laoreet. Nam sagittis tortor eu neque vehicula, sit amet pharetra mauris fermentum. Proin aliquam ante ut ipsum hendrerit, sit amet hendrerit sem vestibulum.
+        Aenean vel ultrices metus. Donec sit amet ipsum sit amet risus auctor vulputate. Curabitur vitae massa ex. Quisque nisi dolor, egestas at elementum at, dignissim a purus. Etiam egestas eleifend leo nec dictum. In id elit nec nunc pharetra
+        sagittis et id nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam pellentesque nisl erat, sed posuere mauris mollis in. Sed ac diam et libero fringilla ornare. Etiam egestas enim id sem
+        ultrices gravida. Nullam a purus sem. Quisque maximus nunc et leo vehicula, at euismod turpis tincidunt.
+      </h>
+      <br>
+      <br>
+      <h>
+        Cras tincidunt tortor quam. Ut et orci id tortor commodo blandit. Pellentesque eget dui ornare, malesuada enim vel, cursus nisi. Donec imperdiet quam sit amet iaculis accumsan. In condimentum malesuada posuere. Sed id justo blandit, posuere
+        risus sit amet, mollis ipsum. In eros nunc, ultricies ac mi at, suscipit vehicula augue. Aenean ultrices iaculis mauris.
+      </h>
+      <br>
+      <br>
+      <h>
+        Phasellus nec est quis massa placerat porttitor vitae vitae nulla. Cras orci velit, iaculis a massa a, pharetra tempor erat. Nam vel diam mauris. Proin quam velit, ornare et finibus elementum, viverra vitae eros. Ut et ante at nulla bibendum
+        lacinia. Cras vitae aliquam nisi. Vestibulum nec nibh et velit mollis vulputate. Aliquam nec nibh id turpis vulputate molestie. Proin turpis enim, finibus nec ligula id, posuere molestie sapien. Nam facilisis maximus mattis. Pellentesque
+        pellentesque luctus nunc, ut ultrices dui pulvinar sit amet. Cras egestas interdum elit, eu varius lacus viverra quis. Sed pulvinar erat ut fringilla efficitur.</h>
+      <br>
+      <br>
 
-    <p> This is the Space Simulator, you can enter custom values to customize your simulation. Feeling technical? I've got you covered! Check the "Simulation Log" checkbox for a <b> complete </b> mission log! Now you can get the information of <b>every
-        frame</b>
-      that's been rendered in the animation.</p>
-    <p> I don't recommend to use it together with Realtime Simulation, since the time intervals between rows of information are inconsistent. </p>
+    </div>
+    <div>
+      <h1 class="title">Consectetur adipiscing elit</h1>
+      <br>
+      <h>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec est urna. Mauris at justo tempor, fermentum tellus at, venenatis neque. Praesent eu velit sed ex mollis facilisis. Curabitur sit amet vulputate orci, eget congue justo. Ut
+        vehicula orci sed dolor efficitur, sed lobortis leo sodales. Vestibulum ac sapien massa. Ut placerat ac mauris at blandit. Phasellus rhoncus tempor nulla et venenatis. Aenean pellentesque sollicitudin sapien eget facilisis. Nam et euismod
+        diam. Cras fringilla, diam eu blandit luctus, libero eros posuere dui, at commodo quam neque ac orci. Cras nec felis vulputate, rhoncus tellus vel, pretium risus.</h>
+      <br>
+      <br>
+      <h>
+        Proin justo mi, semper eu dolor at, tristique laoreet neque. Nulla tristique porttitor risus ac suscipit. Donec vel congue felis. Nam a erat eget felis scelerisque ornare eget vitae mi. Ut vulputate, nulla vel suscipit finibus, lectus ante
+        aliquet massa, ac sagittis quam lacus vitae ex. Nunc eu tortor eget sapien cursus tincidunt. Suspendisse et mauris id erat maximus commodo vitae ut dui. Suspendisse molestie interdum blandit. Proin ac neque ligula. Nulla sagittis lacus
+        mauris,
+        porttitor lacinia dui ullamcorper ut. Vivamus pellentesque elit in ullamcorper dictum. Duis ornare orci vitae nisi egestas, sit amet interdum lacus ultrices. Integer sagittis a erat sit amet bibendum. Proin in auctor enim, eget pharetra
+        metus.
+        Fusce mattis finibus velit, eget rhoncus orci elementum sed.
+      </h>
+      <br>
+      <br>
+      <h>
+        Maecenas vel dolor accumsan augue dignissim ultricies. Morbi pharetra tincidunt laoreet. Nam sagittis tortor eu neque vehicula, sit amet pharetra mauris fermentum. Proin aliquam ante ut ipsum hendrerit, sit amet hendrerit sem vestibulum.
+        Aenean vel ultrices metus. Donec sit amet ipsum sit amet risus auctor vulputate. Curabitur vitae massa ex. Quisque nisi dolor, egestas at elementum at, dignissim a purus. Etiam egestas eleifend leo nec dictum. In id elit nec nunc pharetra
+        sagittis et id nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam pellentesque nisl erat, sed posuere mauris mollis in. Sed ac diam et libero fringilla ornare. Etiam egestas enim id sem
+        ultrices gravida. Nullam a purus sem. Quisque maximus nunc et leo vehicula, at euismod turpis tincidunt.
+      </h>
+      <br>
+      <br>
+      <h>
+        Cras tincidunt tortor quam. Ut et orci id tortor commodo blandit. Pellentesque eget dui ornare, malesuada enim vel, cursus nisi. Donec imperdiet quam sit amet iaculis accumsan. In condimentum malesuada posuere. Sed id justo blandit, posuere
+        risus sit amet, mollis ipsum. In eros nunc, ultricies ac mi at, suscipit vehicula augue. Aenean ultrices iaculis mauris.
+      </h>
+      <br>
+      <br>
+      <h>
+        Phasellus nec est quis massa placerat porttitor vitae vitae nulla. Cras orci velit, iaculis a massa a, pharetra tempor erat. Nam vel diam mauris. Proin quam velit, ornare et finibus elementum, viverra vitae eros. Ut et ante at nulla bibendum
+        lacinia. Cras vitae aliquam nisi. Vestibulum nec nibh et velit mollis vulputate. Aliquam nec nibh id turpis vulputate molestie. Proin turpis enim, finibus nec ligula id, posuere molestie sapien. Nam facilisis maximus mattis. Pellentesque
+        pellentesque luctus nunc, ut ultrices dui pulvinar sit amet. Cras egestas interdum elit, eu varius lacus viverra quis. Sed pulvinar erat ut fringilla efficitur.</h>
+    </div>
 
-    <h2> Smartphone App</h2>
-    <p> Like what you're seeing? Then you might like my Android App, it's called <a href="https://play.google.com/store/apps/details?id=nl.tridius.kuijper.mike.spacecalculator">Space Calculator</a> and is available in the Google Play Store. You can
-      use it to estimate how high a (model) rocket will go, if the rocket is fired straight up. </p>
-    <a href='https://play.google.com/store/apps/details?id=nl.tridius.kuijper.mike.spacecalculator&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'
-        style="border:1px solid white; border-radius:6px; box-sizing:border-box; height:80px;" /></a>
+    <br>-->
 
-    <h1>Setup Simulation</h1>
     <form id="inputForm">
-      <div class="row">
-        <div id="settings">
-          <h2 style="text-align: center;">Rocket Properties</h2>
-          <div style="text-align: center">
-            <a onClick="start()" class="myButton" style="align-content: center;">Start Simulation</a>
-            <a onClick="location.reload()" class="myButton" style="align-content: center; background-color:#CE1F1F; border:1px solid #B30F0F;">Reset Simulation</a>
+      <div id="settings">
+        <h2 style="text-align: center; color: #ffffff; font-size: 2em; font-weight: bolder">Properties</h2>
+        <div style="text-align: center">
+          <a onClick="start()" class="yesButton">Start</a>
+          <a onClick="reset()" class="noButton">Reset</a>
+        </div>
+        <br>
+        <br>
+
+        <div class="row">
+          <div class="column" id="column-0">
+            <!-- <label style="color:#ffffff">Variable 1 (unit):</label><br>
+            <input class="numberInput" type="number" value="10"><br>
+            <label style="color:#ffffff">Variable 2 (unit):</label><br>
+            <input class="numberInput" type="number" value="10"><br>
+            <label style="color:#ffffff">Variable 3 (unit):</label><br>
+            <input class="numberInput" type="number" value="10"><br>-->
+          </div>
+          <div class="column" id="column-1">
+            <!-- <label style="color:#ffffff">Variable 4 (unit):</label><br>
+            <input class="numberInput" type="number" value="10"><br>
+            <label style="color:#ffffff">Variable 5 (unit):</label><br>
+            <input class="numberInput" type="number" value="10"><br>
+            <label style="color:#ffffff">Variable 6 (unit):</label><br>
+            <input class="numberInput" type="number" value="10"><br>-->
+          </div>
+          <div class="column" id="column-2">
+            <!-- <label style="color:#ffffff">Variable 7 (unit):</label><br>
+            <input class="numberInput" type="number" value="10"><br>
+            <label style="color:#ffffff">Variable 8 (unit):</label><br>
+            <input class="numberInput" type="number" value="10"><br>
+            <label style="color:#ffffff">Variable 9 (unit):</label><br>
+            <input class="numberInput" type="number" value="10"><br>-->
           </div>
         </div>
+        <br>
       </div>
     </form>
-    <br>
 
-    <h2> Zoom </h2>
-    <div id="slider-holder"></div> <br>
-
-    <!-- P5.JS SKETCH WILL BE DISPLAYED HERE -->
     <div id="sketch-holder" class="container"></div>
-
-
-    <h3> Space Simulator was made by <a href="https://mikekuijper.github.io/">Mike Kuijper</a>, in September of 2018 </h3>
-
-    <footer class="site-footer">
-
-      <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
-    </footer>
   </section>
 </body>
 
