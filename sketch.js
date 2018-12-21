@@ -43,7 +43,7 @@ function setup() {
 }
 
 function draw() {
-  //canvas.position((windowWidth - width) / 2);
+  canvas.position((windowWidth - width) / 2);
   //updateTextInput();
   //updateSlider();
 
