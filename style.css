@@ -77,6 +77,18 @@ form {
 .noButton:hover {
   background-color: #961515;
 }
+.otherButton {
+  cursor: pointer;
+  padding: 9px 45px;
+  align-content: center;
+  background-color: #46ff32;
+  border: 0px solid #961515;
+  color: #ffffff;
+  font-weight: bold;
+}
+.otherButton:hover {
+  background-color: #31b223;
+}
 .numberInput {
   display: inline-block;
   -webkit-box-sizing: content-box;
