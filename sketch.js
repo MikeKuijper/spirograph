@@ -1,12 +1,9 @@
-// let wipers = [{r: 1.5, speed: 5, angle: 0},
-//   {r: 1 / 3, speed: 1, angle: 0},
-//   {r: 1 / 4, speed: 5, angle: 0}];
 let wipers = [];
 let k;
 let canvas;
+let traceCanvas;
 let started = false;
 let n = 3;
-
 
 function start() {
   let p5Canvas = document.getElementById('defaultCanvas0');
@@ -21,9 +18,21 @@ function start() {
     });
   }
   print(wipers);
-  window.scrollTo(0,document.body.scrollHeight);
+  window.scrollTo(0, document.body.scrollHeight);
 
+  traceCanvas.clear();
   started = true;
+}
+
+function exportCanvas() {
+  let h = hour();
+  if (h < 10) h = 0 + h;
+  let m = minute();
+  if (m < 10) h = 0 + m;
+  let s = second();
+  if (s < 10) s = 0 + s;
+  let string = `img ${day()}-${month()}-${year()} ${h}${m}${s}.png`
+  save(traceCanvas, string);
 }
 
 function reset() {
@@ -39,18 +48,23 @@ function setup() {
   canvas.parent('sketch-holder');
   k = height / 5;
 
+  traceCanvas = createGraphics(width, height);
+  traceCanvas.clear();
+  traceCanvas.translate(width / 2, height / 2);
+
   makeForm(n);
 }
 
 function draw() {
   canvas.position((windowWidth - width) / 2);
-  //updateTextInput();
-  //updateSlider();
 
   if (started && wipers.length > 0) {
     background(255);
     translate(width / 2, height / 2);
     angleMode(DEGREES);
+
+    imageMode(CENTER);
+    image(traceCanvas, 0, 0);
 
     noFill();
     strokeWeight(4);
@@ -87,30 +101,28 @@ function draw() {
         x: x,
         y: y
       });
+      if (history.length > 2) {
+        history.shift();
+      }
     }
     trace();
 
     for (let j in wipers) {
-      wipers[j].angle += wipers[j].speed * 0.45;
+      for (let val = j; val < wipers.length; val++) {
+        if (val < j) val = j;
+        wipers[val].angle += wipers[j].speed * 0.45;
+      }
     }
   }
-  // else if (started) {
-  //   background(255, 255, 255, 0);
-  // }
 }
 
 let history = [];
 
 function trace() {
-  for (let l in history) {
-    if (history[l - 1]) {
-      stroke(70, 255, 50);
-      line(history[l].x * k / 2, history[l].y * k / 2, history[l - 1].x * k / 2, history[l - 1].y * k / 2);
-    }
-  }
-
-  if (history.length > 2000) {
-    history.shift();
+  if (history.length > 1) {
+    traceCanvas.stroke(70, 255, 50);
+    traceCanvas.strokeWeight(4);
+    traceCanvas.line(history[history.length - 1].x * k / 2, history[history.length - 1].y * k / 2, history[history.length - 2].x * k / 2, history[history.length - 2].y * k / 2);
   }
 }
 
