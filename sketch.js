@@ -110,7 +110,7 @@ function draw() {
     for (let j in wipers) {
       for (let val = j; val < wipers.length; val++) {
         if (val < j) val = j;
-        wipers[val].angle += wipers[j].speed * 0.45;
+        wipers[val].angle += wipers[j].speed * -0.45;
       }
     }
   }
